@@ -5,7 +5,7 @@ file(GLOB_RECURSE HEADERS "public/*.hpp")
 
 add_library(${LIBNAME} SHARED)
 
-target_include_directories(${LIBNAME} PRIVATE public)
+target_include_directories(${LIBNAME} PUBLIC public)
 
 target_sources(
     ${LIBNAME}
@@ -24,7 +24,7 @@ if (DOC_XML)
     endif ()
 endif ()
 
-target_link_libraries(${LIBNAME} PRIVATE godot-cpp)
+target_link_libraries(${LIBNAME} PUBLIC godot-cpp)
 
 set_target_properties(
     ${LIBNAME}

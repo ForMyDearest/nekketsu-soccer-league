@@ -21,7 +21,3 @@ add_subdirectory(godot-cpp SYSTEM)
 # This is made available for documentation generation
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${godot-cpp_SOURCE_DIR}/cmake")
 include(GodotCPPModule)
-
-# The godot-cpp target has some of useful properties attached that can be retrieved like so.
-get_target_property(GODOTCPP_SUFFIX godot::cpp GODOTCPP_SUFFIX)
-get_target_property(GODOTCPP_PLATFORM godot::cpp GODOTCPP_PLATFORM)

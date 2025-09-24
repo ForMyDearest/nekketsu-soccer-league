@@ -12,4 +12,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_subdirectory(libs)
-add_subdirectory(project/gdextension)
+
+# The godot-cpp target has some of useful properties attached that can be retrieved like so.
+get_target_property(GODOTCPP_SUFFIX godot::cpp GODOTCPP_SUFFIX)
+get_target_property(GODOTCPP_PLATFORM godot::cpp GODOTCPP_PLATFORM)
+
+add_subdirectory(project/gdextension/modules)

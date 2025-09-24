@@ -27,7 +27,7 @@ compile_commands.json
 *.log
 
 # VSCode
-.vscode/*
+.vscode/
 .DS_Store
 
 # Jetbrains
@@ -36,3 +36,4 @@ compile_commands.json
 # Cmake
 *cmake-build*
 *CMakeUserPresets.json
+*bin/

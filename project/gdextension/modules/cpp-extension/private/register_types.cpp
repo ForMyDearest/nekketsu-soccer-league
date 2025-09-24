@@ -1,4 +1,8 @@
-#include <gdextension_interface.h>
+#include <cpp-extension/utils/state.hpp>
+#include <cpp-extension/utils/state_machine.hpp>
+#include <cpp-extension/utils/input_system.hpp>
+
+#include <godot_cpp/classes/engine.hpp>
 
 using namespace godot;
 
@@ -7,12 +11,19 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 		return;
 	}
 
+	GDREGISTER_ABSTRACT_CLASS(State)
+	GDREGISTER_RUNTIME_CLASS(StateMachine)
+	GDREGISTER_RUNTIME_CLASS(InputSystem)
+
+	Engine::get_singleton()->register_singleton("InputSystem", memnew(InputSystem));
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+
+	memdelete(InputSystem::singleton);
 }
 
 extern "C" GDExtensionBool GDE_EXPORT
